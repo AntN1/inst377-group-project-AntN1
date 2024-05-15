@@ -4,8 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About</title>
+    <style>
+        h1 {
+           text-align: center;
+           color: red
+       }
+       nav {
+           background-color: darkgray;
+       }
+       nav li {
+           display: inline;
+           margin-right: 30px;
+           color: black; 
+       }
+       nav ul {
+           list-style: none;
+           padding: 2%;
+           text-align: center;
+       }
+       nav ul li:hover {
+           color: white; 
+           cursor: pointer;
+       }
+   </style>
 </head>
 <body>
-    
+    <h1> Ron Swanson Quotes</h1>
+    <nav>
+        <ul>
+            <li onclick="window.location.href='home.html';">Home</li>
+            <li onclick="window.location.href='project.html';">Project</li>
+            <li onclick="window.location.href='about.html';">About</li>
+        </ul>
+    </nav>
 </body>
 </html>
