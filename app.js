@@ -8,8 +8,11 @@ async function fetchQuote() {
 async function displayQuote() {
   if (window.location.pathname === "/project.html") {
     const data = await fetchQuote();
-    const quotetext = document.getElementById("quote-text");
-    quotetext.textContent = data[0];
+
+    var typed = new Typed("#quote-text", {
+      strings: [data[0]],
+      typeSpeed: 25,
+    });
   } else {
     return;
   }
