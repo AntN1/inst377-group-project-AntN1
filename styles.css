@@ -41,9 +41,22 @@ a {
     "Lucida Sans", Arial, sans-serif;
 }
 
-#quote-text {
+blockquote#quote-text{
   font-family: "Ubuntu Sans", sans-serif;
-  font-size: 20px;
+  background: #e6eaf3;
+  border-left: 10px solid #0077B6;
+  border-radius: 7px;
+  width: fit-content;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+}
+
+blockquote#quote-text::before{
+  content: open-quote;
+}
+
+blockquote#quote-text::after {
+  content: close-quote;
 }
 
 .button-19 {
@@ -74,7 +87,6 @@ a {
   -webkit-user-select: none;
   vertical-align: middle;
   white-space: nowrap;
-  width: 20%;
 }
 
 .button-19:after {
