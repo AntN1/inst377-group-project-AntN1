@@ -5,10 +5,12 @@ body{
 h1 {
     text-align: center;
     color: #03045E;
+    font-size: 36px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 h2{
+    font-size: 26px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
@@ -39,6 +41,7 @@ a{
 
 #quote-text{
     font-family: "Ubuntu Sans", sans-serif;
+    font-size: 20px;
 }
 
 .button-19 {
