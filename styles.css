@@ -44,7 +44,8 @@ a {
 blockquote#quote-text{
   font-family: "Ubuntu Sans", sans-serif;
   background: #e6eaf3;
-  border-left: 10px solid #0077B6;
+  border-left: 10px solid #828b90;
+  
   border-radius: 7px;
   width: fit-content;
   margin: 1.5em 10px;
