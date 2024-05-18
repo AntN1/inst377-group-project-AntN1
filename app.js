@@ -1,3 +1,5 @@
+let typed;
+
 async function fetchQuote() {
   const api_url = "https://ron-swanson-quotes.herokuapp.com/v2/quotes";
   const res = await fetch(api_url);
@@ -8,14 +10,15 @@ async function fetchQuote() {
 async function displayQuote() {
   if (window.location.pathname === "/project.html") {
     const data = await fetchQuote();
-
-    var typed = new Typed("#quote-text", {
+    if (typed) {
+      typed.destroy();
+  }
+    typed = new Typed("#quote-text", {
       strings: [data[0]],
       typeSpeed: 25,
     });
-  } else {
-    return;
-  }
+  } 
+  
 }
 
 displayQuote();

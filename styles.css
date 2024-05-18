@@ -127,3 +127,59 @@ blockquote#quote-text::after {
 .typed-cursor {
   display: none;
 }
+
+.container {
+  width: 100%;
+}
+
+/* slider styles */
+.slider {
+  position: relative;
+  overflow: hidden;
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slides img {
+  width: 100%;
+  height: fit-content;
+  flex-shrink: 0;
+}
+
+@keyframes slide {
+  0% { transform: translateX(0%); }
+  20% { transform: translateX(0%); }
+  33.33% { transform: translateX(-100%); }
+  53.33% { transform: translateX(-100%); }
+  66.66% { transform: translateX(-200%); }
+  86.66% { transform: translateX(-200%); }
+  100% { transform: translateX(0%); }
+}
+
+/* slider button styles */
+
+button {
+  position: absolute;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: white;
+  font-size: 2em;
+  padding: 0.5em;
+  cursor: pointer;
+  z-index: 10;
+  user-select: none;
+}
+
+button.prev {
+  left: 10px;
+  top: 50%;
+}
+
+button.next {
+  right: 10px;
+  top: 50%;
+}
