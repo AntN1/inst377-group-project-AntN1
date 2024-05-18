@@ -24,11 +24,44 @@
     <div id="quote-container">
       <h2>Random Ron Swanson Quote:</h2>
       <blockquote id="quote-text"></blockquote>
-      <button class="button-19" role="button" onclick="displayQuote()">
+      <button
+        id="quote-button"
+        class="button-19"
+        role="button"
+        onclick="displayQuote()"
+      >
         Get Another Quote
       </button>
     </div>
+    <div id="audio-div">
+      <h2>This site uses audio controls</h2>
+      <h3>Voice commands</h3>
+      <ul id="audio-rules">
+        <li>
+          Generate a New Quote
+          <ul>
+            <li>Say: <b>Generate new quote</b></li>
+          </ul>
+        </li>
+        <li>
+          Navigate to a Different Page
+          <ul>
+            <li>Say: <b>Navigate to &lt;page&gt;</b></li>
+          </ul>
+        </li>
+      </ul>
+
+      <div id="audio-button-container">
+        <button id="on" class="audio-buttons" onclick="audioButton(event)">
+          Turn On Listening
+        </button>
+        <button id="off" class="audio-buttons" onclick="audioButton(event)">
+          Turn Off Listening
+        </button>
+      </div>
+    </div>
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.1/annyang.min.js"></script>
     <script src="app.js"></script>
   </body>
 </html>

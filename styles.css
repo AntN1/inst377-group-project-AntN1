@@ -1,10 +1,10 @@
 body {
-  background-color: #90e0ef;
+  background-color: #0077b6;
 }
 
 h1 {
   text-align: center;
-  color: #03045e;
+  color: #caf0f8;
   font-size: 36px;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
@@ -16,7 +16,7 @@ h2 {
 }
 
 nav {
-  background-color: #0077b6;
+  background-color: #00b4d8;
 }
 nav li {
   display: inline;
@@ -41,18 +41,18 @@ a {
     "Lucida Sans", Arial, sans-serif;
 }
 
-blockquote#quote-text{
+blockquote#quote-text {
   font-family: "Ubuntu Sans", sans-serif;
   background: #e6eaf3;
   border-left: 10px solid #828b90;
-  
+
   border-radius: 7px;
   width: fit-content;
   margin: 1.5em 10px;
   padding: 0.5em 10px;
 }
 
-blockquote#quote-text::before{
+blockquote#quote-text::before {
   content: open-quote;
 }
 
@@ -129,7 +129,8 @@ blockquote#quote-text::after {
 }
 
 .container {
-  width: 100%;
+  width: 75%;
+  margin: auto;
 }
 
 /* slider styles */
@@ -150,18 +151,32 @@ blockquote#quote-text::after {
 }
 
 @keyframes slide {
-  0% { transform: translateX(0%); }
-  20% { transform: translateX(0%); }
-  33.33% { transform: translateX(-100%); }
-  53.33% { transform: translateX(-100%); }
-  66.66% { transform: translateX(-200%); }
-  86.66% { transform: translateX(-200%); }
-  100% { transform: translateX(0%); }
+  0% {
+    transform: translateX(0%);
+  }
+  20% {
+    transform: translateX(0%);
+  }
+  33.33% {
+    transform: translateX(-100%);
+  }
+  53.33% {
+    transform: translateX(-100%);
+  }
+  66.66% {
+    transform: translateX(-200%);
+  }
+  86.66% {
+    transform: translateX(-200%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
 }
 
 /* slider button styles */
 
-button {
+.slider-btn {
   position: absolute;
   transform: translateY(-50%);
   background-color: rgba(0, 0, 0, 0.5);
@@ -174,12 +189,45 @@ button {
   user-select: none;
 }
 
-button.prev {
+#prev {
   left: 10px;
   top: 50%;
 }
 
-button.next {
+#next {
   right: 10px;
   top: 50%;
+}
+
+#audio-div {
+  background-color: rgb(0, 70, 135);
+  border: 2px solid white;
+  color: white;
+  width: 800px;
+  padding: 15px;
+  margin: auto;
+  margin-top: 70px;
+}
+
+#audio-button-container {
+  text-align: center;
+  padding: 10px;
+}
+
+.audio-buttons {
+  background-color: rgb(89, 170, 251);
+  color: white;
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  height: 50px;
+  width: 300px;
+  font-weight: bold;
+  font-size: 18px;
+  margin: 5px;
+}
+
+.audio-buttons:hover {
+  border: 2px solid black;
+  color: black;
 }
