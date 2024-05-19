@@ -1,101 +1,57 @@
-let typed;
+const supabaseClient = require("@supabase/supabase-js");
+const bodyParser = require("body-parser");
+const express = require("express");
 
-async function fetchQuote() {
-  const api_url = "https://ron-swanson-quotes.herokuapp.com/v2/quotes";
-  const res = await fetch(api_url);
-  var data = await res.json();
-  return data;
-}
+const app = express();
+const port = 3000;
 
-async function displayQuote() {
-  if (window.location.pathname === "/project.html") {
-    const data = await fetchQuote();
-    if (typed) {
-      typed.destroy();
-    }
-    typed = new Typed("#quote-text", {
-      strings: [data[0]],
-      typeSpeed: 25,
-    });
-  }
-}
-let currentIndex = 0;
+app.use(bodyParser.json());
+app.use(express.static(__dirname + "/public"));
 
-function moveSlide(direction) {
-  const slides = document.querySelector(".slides");
-  const slideWidth = slides.children[0].clientWidth;
-  const totalSlides = slides.children.length;
+const supabaseURL = "https://vfojwovmvpwhdjjofmxb.supabase.co";
+const supabaseKey =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZmb2p3b3ZtdnB3aGRqam9mbXhiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTYxMzg4MDcsImV4cCI6MjAzMTcxNDgwN30.VXAaFuW7X5Jdxs3ekHMo4tnt8gFm_grak3jpBQW69GE";
+const supabase = supabaseClient.createClient(supabaseURL, supabaseKey);
 
-  currentIndex += direction;
+// Servers HTML, CSS, and Client Side JS of the site
+app.get("/", (req, res) => {
+  res.sendFile("public/home.html", { root: __dirname });
+});
 
-  if (currentIndex >= totalSlides) {
-    currentIndex = 0;
-  }
-  // If currentIndex becomes negative, set it to the index of the last slide
-  else if (currentIndex < 0) {
-    currentIndex = totalSlides - 1;
-  }
+app.get("/savedQuotes", async (req, res) => {
+  console.log("attempting to Get all quotes");
 
-  // Calculate the new position of the slides container
-  const offset = -currentIndex * slideWidth;
-  slides.style.transform = `translateX(${offset}px)`;
-}
+  const { data, error } = await supabase.from("Customer").select();
 
-displayQuote();
-
-// Audio Section
-if (annyang) {
-  // Let's define a command.
-  const homeCommands = {
-    "navigate to *page": (page) => {
-      window.location.href = `/${page}.html`;
-    },
-    "slide *direction": (direction) => {
-      if (direction === "left") {
-        const leftButton = document.getElementById("prev");
-        leftButton.click();
-      } else if (direction === "right") {
-        const rightButton = document.getElementById("next");
-        rightButton.click();
-      } else {
-        alert(
-          "Invalid Direction! Try saying either left or right more clearly."
-        );
-      }
-    },
-  };
-
-  const projectCommands = {
-    "navigate to *page": (page) => {
-      window.location.href = `/${page}.html`;
-    },
-    "generate new quote": () => {
-      const quoteButton = document.getElementById("quote-button");
-      quoteButton.click();
-    },
-  };
-
-  const aboutCommands = {
-    "navigate to *page": (page) => {
-      window.location.href = `/${page}.html`;
-    },
-  };
-
-  // Add our commands to annyang
-  if (window.location.pathname === "/home.html") {
-    annyang.addCommands(homeCommands);
-  } else if (window.location.pathname === "/project.html") {
-    annyang.addCommands(projectCommands);
-  } else if (window.location.pathname === "/about.html") {
-    annyang.addCommands(aboutCommands);
-  }
-}
-
-function audioButton(e) {
-  const id = e.target.id;
-  if (id === "on") {
-    annyang.start();
+  if (error) {
+    console.log("Error");
+    res.send(error);
   } else {
-    annyang.abort();
+    res.send(data);
   }
-}
+
+  console.log("Data:", data);
+  console.log("Error", error);
+});
+
+app.post("/postQuote", async (req, res) => {
+  console.log("adding quote");
+  console.log(req.body);
+  var quote = req.body.quote;
+
+  const { data, error } = await supabase
+    .from("Customer")
+    .insert({ quote: quote })
+    .select();
+
+  if (error) {
+    console.log("Error");
+    res.send(error);
+  } else {
+    res.send(data);
+  }
+});
+
+app.listen(port, () => {
+  console.log("express app listening on port 3000");
+});

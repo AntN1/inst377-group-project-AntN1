@@ -1,0 +1,18 @@
+{
+  "name": "inst377-group-project-antn1",
+  "version": "1.0.0",
+  "description": "<p>Description: Here you can find all your favorite quotes by Ron Swanson from the TV show \"Parks and Recreation\". You will be able to get random quotes, search for quotes using a term, and these beloved quotes will be displayed in a user friendly manner</p>",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon -e '*'",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Anteneh Nega",
+  "license": "ISC",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.43.2",
+    "body-parser": "^1.20.2",
+    "express": "^4.19.2",
+    "nodemon": "^3.1.0"
+  }
+}
