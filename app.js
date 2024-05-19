@@ -29,14 +29,10 @@ app.get("/savedQuotes", async (req, res) => {
   } else {
     res.send(data);
   }
-
-  console.log("Data:", data);
-  console.log("Error", error);
 });
 
 app.post("/postQuote", async (req, res) => {
   console.log("adding quote");
-  console.log(req.body);
   var quote = req.body.quote;
 
   const { data, error } = await supabase

@@ -101,3 +101,44 @@ function audioButton(e) {
 }
 
 // 2 backend API endpoints
+
+async function loadSavedQuotes() {
+  var host = window.location.origin;
+  const res = await fetch(`${host}/savedQuotes`);
+  var data = await res.json();
+  return data;
+}
+
+async function displayQuoteList() {
+  const data = await loadSavedQuotes();
+  const quoteList = document.getElementById("quote-list");
+
+  quoteList.innerHTML = "";
+
+  data.forEach((item) => {
+    const quoteLi = document.createElement("li");
+    quoteLi.textContent = item.quote;
+    quoteLi.classList.add("quote-li");
+
+    quoteList.appendChild(quoteLi);
+  });
+}
+
+async function saveQuote() {
+  var host = window.location.origin;
+  const quote = document.getElementById("quote-text");
+  await fetch(`${host}/postQuote`, {
+    method: "POST",
+    body: JSON.stringify({
+      quote: quote.textContent,
+    }),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((res) => res.json)
+    .then((res) => {});
+  await displayQuoteList();
+}
+
+displayQuoteList();

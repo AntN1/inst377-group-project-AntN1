@@ -251,3 +251,7 @@ blockquote#quote-text::after {
   font-family: "Ubuntu Sans", sans-serif;
   font-size: 18px;
 }
+
+.quote-li {
+  padding: 10px;
+}
