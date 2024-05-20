@@ -4,6 +4,8 @@
 
 <p>Target Browser: This web app will be developed with Windows and MacOS operating systems in mind. The intended browser will be Google Chrome. Other browsers may or may not have issues.</p>
 
+<a href="https://inst377-group-project-ant-n1.vercel.app/"><h2>Go to Vercel site</h2></a>
+
 [Click here to go to the Developer Manual section](#developer-manual)
 
 <hr>
