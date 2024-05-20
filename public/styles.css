@@ -41,6 +41,11 @@ a {
     "Lucida Sans", Arial, sans-serif;
 }
 
+p {
+  font-family: "Ubuntu Sans", sans-serif;
+  font-size: 20px;
+}
+
 blockquote#quote-text {
   font-family: "Ubuntu Sans", sans-serif;
   background: #e6eaf3;
